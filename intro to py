@@ -1,0 +1,255 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
+import pandas as pd
+import numpy as np
+
+
+# In[2]:
+
+
+url='https://raw.githubusercontent.com/WalePhenomenon/climate_change/master/fuel_ferc1.csv'
+df=pd.read_csv(url)
+df.head()
+
+
+# In[ ]:
+
+
+
+
+
+# In[9]:
+
+
+A = [1,2,3,4,5,6]
+B = [13, 21, 34]
+a_b=A.extend(B)
+print(a_b)
+
+
+# In[8]:
+
+
+print(a_b)
+
+
+# In[11]:
+
+
+np.identity(3)
+
+
+# In[13]:
+
+
+
+
+
+# In[14]:
+
+
+fuel_type=df.groupby('fuel_type_code_pudl')
+
+
+# In[15]:
+
+
+fuel_type.head()
+
+
+# In[17]:
+
+
+coal=fuel_type.get_group('coal')
+
+
+# In[18]:
+
+
+df['fuel_type_code_pudl'].unique()
+
+
+# In[19]:
+
+
+gas=fuel_type.get_group('gas')
+nuclear=fuel_type.get_group('nuclear')
+oil=fuel_type.get_group('oil')
+waste=fuel_type.get_group('waste')
+other=fuel_type.get_group('other')
+
+
+# In[26]:
+
+
+coal['fuel_cost_per_unit_burned'].sum()/
+
+
+# In[40]:
+
+
+gas['fuel_cost_per_unit_burned'].sum()/coal['fuel_cost_per_unit_burned'].size
+
+
+# In[41]:
+
+
+nuclear['fuel_cost_per_unit_burned'].sum()/nuclear['fuel_cost_per_unit_burned'].size
+
+
+# In[42]:
+
+
+oil['fuel_cost_per_unit_burned'].sum()/oil['fuel_cost_per_unit_burned'].size
+
+
+# In[43]:
+
+
+waste['fuel_cost_per_unit_burned'].sum()/waste['fuel_cost_per_unit_burned'].size
+
+
+# In[44]:
+
+
+other['fuel_cost_per_unit_burned'].sum()/other['fuel_cost_per_unit_burned'].size
+
+
+# In[38]:
+
+
+coal['fuel_cost_per_unit_burned'].size
+
+
+# In[34]:
+
+
+import datasist as ds
+
+
+# In[48]:
+
+
+ds.structdata.describe(df)
+
+
+# In[45]:
+
+
+df.describe()
+
+
+# In[46]:
+
+
+from scipy.stats import skew 
+
+
+# In[47]:
+
+
+skew(df['fuel_qty_burned'])
+
+
+# In[49]:
+
+
+df.corr()
+
+
+# In[61]:
+
+
+year=df.groupby('report_year')
+
+
+# In[52]:
+
+
+a=df['report_year'].unique()
+
+
+# In[54]:
+
+
+df['report_year'].unique()
+
+
+# In[62]:
+
+
+
+y1994=gas=year.get_group(1994)
+y1995=gas=year.get_group(1995)
+y1996=gas=year.get_group(1996)
+y1997=gas=year.get_group(1997)
+y1998=gas=year.get_group(1998)
+y1999=gas=year.get_group(1999)
+y2000=gas=year.get_group(2000)
+y2001=gas=year.get_group(2001)
+y2002=gas=year.get_group(2002)
+y2003=gas=year.get_group(2003)
+y2004=gas=year.get_group(2004)
+y2005=gas=year.get_group(2005)
+y2006=gas=year.get_group(2006)
+y2007=gas=year.get_group(2007)
+y2008=gas=year.get_group(2008)
+y2009=gas=year.get_group(2009)
+y2010=gas=year.get_group(2010)
+y2011=gas=year.get_group(2011)
+y2012=gas=year.get_group(2012)
+y2013=gas=year.get_group(2013)
+y2014=gas=year.get_group(2014)
+y2015=gas=year.get_group(2015)
+y2016=gas=year.get_group(2016)
+y2017=gas=year.get_group(2017)
+y2018=gas=year.get_group(2018)
+
+    
+
+
+# In[79]:
+
+
+(y1994['fuel_cost_per_unit_burned'].sum()/y1998['fuel_cost_per_unit_burned'].sum())
+
+
+# In[73]:
+
+
+y2004['fuel_cost_per_unit_delivered'].sum()/y2004['fuel_cost_per_unit_delivered'].size
+
+
+# In[74]:
+
+
+y2018['fuel_cost_per_unit_delivered'].sum()/y2018['fuel_cost_per_unit_delivered'].size
+
+
+# In[75]:
+
+
+y1997['fuel_cost_per_unit_delivered'].sum()/y1997['fuel_cost_per_unit_delivered'].size
+
+
+# In[76]:
+
+
+y1996['fuel_cost_per_unit_delivered'].sum()/y1996['fuel_cost_per_unit_delivered'].size
+
+
+# In[77]:
+
+
+y2009['fuel_cost_per_unit_delivered'].sum()/y2009['fuel_cost_per_unit_delivered'].size
+
+
+# In[ ]:
+
+
+
+
